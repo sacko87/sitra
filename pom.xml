@@ -27,5 +27,6 @@
 	</build>
 	<modules>
 		<module>sitra-types</module>
+		<module>sitra-basic</module>
 	</modules>
 </project>
