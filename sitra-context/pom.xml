@@ -5,16 +5,11 @@
     <artifactId>sitra</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>sitra-basic</artifactId>
+  <artifactId>sitra-context</artifactId>
   <dependencies>
   	<dependency>
   		<groupId>uk.sacko.m2m</groupId>
   		<artifactId>sitra-types</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>uk.sacko.m2m</groupId>
-  		<artifactId>sitra-context</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   </dependencies>

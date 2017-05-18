@@ -1,17 +1,14 @@
 package uk.sacko.m2m.sitra.engine;
 
 import java.util.AbstractMap;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import uk.sacko.m2m.sitra.Rule;
+import uk.sacko.m2m.sitra.context.SimpleContext;
 
-public class SimpleTransformer extends SimpleAbstractTransformer {
-	/**
-	 * (r, s) -&gt; t where t = r(s)
-	 */
-	private final Map<Entry<?, Class<? extends Rule<?, ?>>>, Object> cache = new HashMap<Entry<?, Class<? extends Rule<?, ?>>>, Object>();
+public class SimpleTransformer extends SimpleAbstractTransformer implements ContextAware {
+	private SimpleContext ctx;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -27,21 +24,22 @@ public class SimpleTransformer extends SimpleAbstractTransformer {
 			return null; // this rule is not in the engine
 		}
 
+		Map<Entry<?, Class<? extends Rule<?, ?>>>, Object> cache = this.getContext().getCache();
 		// generate a cache key
 		final Entry<?, Class<? extends Rule<?, ?>>> cacheKey = new AbstractMap.SimpleEntry<S, Class<? extends Rule<?, ?>>>(
 				source, with);
 
 		// check whether this has been transformed before
-		if (this.getCache().containsKey(cacheKey)) {
+		if (cache.containsKey(cacheKey)) {
 			// return the previously instantiated objects
-			target = (T) this.getCache().get(cacheKey);
+			target = (T) cache.get(cacheKey);
 		} else {
 			// guard
 			if (using.check(source)) {
 				// instantiate
 				target = using.build(source, this);
 				if (target != null) {
-					this.getCache().put(cacheKey, target);
+					cache.put(cacheKey, target);
 					// bind
 					using.setProperties(target, source, this);
 				}
@@ -51,15 +49,16 @@ public class SimpleTransformer extends SimpleAbstractTransformer {
 		return target;
 	}
 
-	/**
-	 * The internal mapping of sources to targets with relation to a specific
-	 * transformation rule.
-	 * 
-	 * (r, s) -&gt; t where t = r(s)
-	 * 
-	 * @return the internal trace of this engine.
-	 */
-	private Map<Entry<?, Class<? extends Rule<?, ?>>>, Object> getCache() {
-		return cache;
+	@Override
+	public SimpleContext getContext() {
+		if(this.ctx == null) {
+			this.setContext(new SimpleContext());
+		}
+		
+		return this.ctx;
+	}
+
+	public void setContext(SimpleContext ctx) {
+		this.ctx = ctx;
 	}
 }
