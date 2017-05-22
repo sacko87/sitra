@@ -7,5 +7,5 @@ import uk.sacko.m2m.sitra.engine.Transformer;
 import uk.sacko.m2m.sitra.trace.Invocation;
 
 public interface TraceableTransformer extends Transformer, ContextAware {
-	public List<Invocation<?, ?>> getTransformationTrace(); 
+	public List<? extends Invocation<?, ?>> getTransformationTrace(); 
 }
