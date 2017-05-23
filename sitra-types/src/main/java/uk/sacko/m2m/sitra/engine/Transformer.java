@@ -3,6 +3,7 @@ package uk.sacko.m2m.sitra.engine;
 import java.util.Set;
 
 import uk.sacko.m2m.sitra.Rule;
+import uk.sacko.m2m.sitra.context.Context;
 
 /**
  * The basic definition of a transformation engine.
@@ -52,4 +53,10 @@ public interface Transformer {
 	 * @return An ordered collection of transformation rule definitions.
 	 */
 	public Set<Class<? extends Rule<?, ?>>> getTransformationRules();
+
+	/**
+	 * 
+	 * @return
+	 */
+	public Context getContext();
 }

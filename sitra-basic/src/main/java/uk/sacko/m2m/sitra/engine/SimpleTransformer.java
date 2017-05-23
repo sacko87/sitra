@@ -13,7 +13,7 @@ import uk.sacko.m2m.sitra.context.SimpleContext;
  * @author John T. Saxon
  * @author Behzad Bordbar
  */
-public class SimpleTransformer extends SimpleAbstractTransformer implements ContextAware {
+public class SimpleTransformer extends SimpleAbstractTransformer {
 	private SimpleContext ctx;
 
 	@SuppressWarnings("unchecked")

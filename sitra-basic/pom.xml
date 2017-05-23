@@ -10,7 +10,7 @@
   <dependencies>
   	<dependency>
   		<groupId>uk.sacko.m2m</groupId>
-  		<artifactId>sitra-context</artifactId>
+  		<artifactId>sitra-types</artifactId>
   		<version>${project.version}</version>
   	</dependency>
   </dependencies>

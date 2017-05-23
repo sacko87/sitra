@@ -28,7 +28,6 @@
 	<modules>
 		<module>sitra-types</module>
 		<module>sitra-basic</module>
-		<module>sitra-context</module>
 		<module>sitra-linear</module>
 		<module>sitra-trace</module>
 	</modules>
