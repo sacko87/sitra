@@ -23,4 +23,12 @@ public interface Context {
 	 * @return the internal trace of this engine.
 	 */
 	public Map<Entry<?, Class<? extends Rule<?, ?>>>, ? extends Object> getCache();
+
+	/**
+	 * A map for use within the transformation, this can provide configurable
+	 * settings to a transformation such as constants and model factories.
+	 * 
+	 * @return the configuration for a transformation.
+	 */
+	public Map<Object, Object> getConfiguration();
 }
