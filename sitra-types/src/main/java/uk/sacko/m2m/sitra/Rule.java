@@ -21,7 +21,7 @@ public interface Rule<S, T> {
 	 * @return <code>true</code> if the rule applies to the input, otherwise
 	 *         <code>false</code>.
 	 */
-	public Boolean check(S source);
+	public boolean check(S source);
 
 	/**
 	 * The transformation rule's instantiator.
