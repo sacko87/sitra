@@ -3,7 +3,7 @@
   <parent>
     <groupId>uk.sacko.m2m</groupId>
     <artifactId>sitra</artifactId>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <relativePath>..</relativePath>
   </parent>
   <artifactId>sitra-linear</artifactId>
