@@ -7,6 +7,12 @@ import java.util.Map.Entry;
 import uk.sacko.m2m.sitra.Rule;
 import uk.sacko.m2m.sitra.context.SimpleContext;
 
+/**
+ * Simple transformer with no external trace.
+ * 
+ * @author John T. Saxon
+ * @author Behzad Bordbar
+ */
 public class SimpleTransformer extends SimpleAbstractTransformer implements ContextAware {
 	private SimpleContext ctx;
 

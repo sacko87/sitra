@@ -6,7 +6,9 @@ import uk.sacko.m2m.sitra.engine.Transformer;
  * An interface that defines a transformation rule from &lt;S&gt; to &lt;T&gt;.
  * 
  * @author John T. Saxon
- *
+ * @author David H. Akehurst
+ * @author Behzad Bordbar
+ * 
  * @param <S>
  *            the source type.
  * @param <T>

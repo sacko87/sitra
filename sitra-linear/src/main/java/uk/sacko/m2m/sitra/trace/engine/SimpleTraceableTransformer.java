@@ -12,6 +12,15 @@ import uk.sacko.m2m.sitra.trace.SimpleInvocation;
 import uk.sacko.m2m.sitra.trace.context.SimpleTraceableContext;
 import uk.sacko.m2m.sitra.trace.engine.TraceableTransformer;
 
+/**
+ * A simple implementation of a transformer with a linear trace. 
+ * 
+ * @author John T. Saxon
+ * @author David Akehurst
+ * @author Behzad Bordbar
+ * @author Kyriakos Anastasakis
+ *
+ */
 public class SimpleTraceableTransformer extends SimpleAbstractTransformer implements TraceableTransformer {
 	private SimpleTraceableContext ctx;
 

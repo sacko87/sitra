@@ -9,6 +9,11 @@ import java.util.Map.Entry;
 import uk.sacko.m2m.sitra.Rule;
 import uk.sacko.m2m.sitra.trace.Invocation;
 
+/**
+ * An implementation of a traceable transformation Context.
+ * 
+ * @author John T. Saxon
+ */
 public class SimpleTraceableContext implements TraceableContext {
 	private final Map<Entry<?, Class<? extends Rule<?, ?>>>, Invocation<?, ?>> cache =
 			new HashMap<Map.Entry<?,Class<? extends Rule<?,?>>>, Invocation<?,?>>();

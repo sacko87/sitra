@@ -5,9 +5,12 @@ import java.util.Set;
 import uk.sacko.m2m.sitra.Rule;
 
 /**
+ * The basic definition of a transformation engine.
  * 
  * @author John T. Saxon 
- *
+ * @author David H. Akehurst
+ * @author Behzad Bordbar
+ * 
  */
 public interface Transformer {
 	/**

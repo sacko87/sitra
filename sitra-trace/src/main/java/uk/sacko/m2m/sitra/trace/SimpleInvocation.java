@@ -2,11 +2,22 @@ package uk.sacko.m2m.sitra.trace;
 
 import uk.sacko.m2m.sitra.Rule;
 
+/**
+ * An implementation of an Invocation.
+ * 
+ * @author John T. Saxon
+ * @author Kyriakos Anastasakis
+ *
+ * @param <S>
+ *            the source type
+ * @param <T>
+ *            the target type
+ */
 public class SimpleInvocation<S, T> implements Invocation<S, T> {
 	private final S source;
 	private final T target;
 	private final Class<? extends Rule<S, T>> using;
-	
+
 	public SimpleInvocation(S source, T target, Class<? extends Rule<S, T>> using) {
 		this.source = source;
 		this.target = target;
