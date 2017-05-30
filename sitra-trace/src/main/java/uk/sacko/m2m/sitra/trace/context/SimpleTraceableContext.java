@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 
 import uk.sacko.m2m.sitra.Rule;
 import uk.sacko.m2m.sitra.trace.Invocation;
+import uk.sacko.m2m.sitra.trace.TraceableElement;
 
 /**
  * An implementation of a traceable transformation Context.
@@ -20,7 +21,7 @@ public class SimpleTraceableContext implements TraceableContext {
 	
 	private final Map<Object, Object> configuration = new HashMap<Object, Object>();
 	
-	private List<Invocation<?, ?>> transformationTrace = new LinkedList<Invocation<?,?>>();
+	private List<TraceableElement> transformationTrace = new LinkedList<TraceableElement>();
 
 	@Override
 	public Map<Entry<?, Class<? extends Rule<?, ?>>>, Invocation<?, ?>> getCache() {
@@ -33,7 +34,7 @@ public class SimpleTraceableContext implements TraceableContext {
 	}
 	
 	@Override
-	public List<Invocation<?, ?>> getTransformationTrace() {
+	public List<TraceableElement> getTransformationTrace() {
 		return this.transformationTrace;
 	}
 }

@@ -9,6 +9,7 @@ import uk.sacko.m2m.sitra.Rule;
 import uk.sacko.m2m.sitra.engine.SimpleAbstractTransformer;
 import uk.sacko.m2m.sitra.trace.Invocation;
 import uk.sacko.m2m.sitra.trace.SimpleInvocation;
+import uk.sacko.m2m.sitra.trace.TraceableElement;
 import uk.sacko.m2m.sitra.trace.context.SimpleTraceableContext;
 import uk.sacko.m2m.sitra.trace.engine.TraceableTransformer;
 
@@ -82,7 +83,7 @@ public class SimpleTraceableTransformer extends SimpleAbstractTransformer implem
 	}
 
 	@Override
-	public List<Invocation<?, ?>> getTransformationTrace() {
+	public List<TraceableElement> getTransformationTrace() {
 		return this.getContext().getTransformationTrace();
 	}
 }

@@ -3,7 +3,7 @@ package uk.sacko.m2m.sitra.trace.engine;
 import java.util.List;
 
 import uk.sacko.m2m.sitra.engine.Transformer;
-import uk.sacko.m2m.sitra.trace.Invocation;
+import uk.sacko.m2m.sitra.trace.TraceableElement;
 
 /**
  * The basic definition for a traceable transformer.
@@ -22,5 +22,5 @@ public interface TraceableTransformer extends Transformer {
 	 * 
 	 * @return an ordered list of invocations.
 	 */
-	public List<? extends Invocation<?, ?>> getTransformationTrace(); 
+	public List<TraceableElement> getTransformationTrace(); 
 }

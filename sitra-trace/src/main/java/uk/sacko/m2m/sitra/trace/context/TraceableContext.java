@@ -3,7 +3,7 @@ package uk.sacko.m2m.sitra.trace.context;
 import java.util.List;
 
 import uk.sacko.m2m.sitra.context.Context;
-import uk.sacko.m2m.sitra.trace.Invocation;
+import uk.sacko.m2m.sitra.trace.TraceableElement;
 
 /**
  * A context for a traceable transformation.
@@ -20,5 +20,5 @@ public interface TraceableContext extends Context {
 	 * 
 	 * @return an ordered list of invocations.
 	 */
-	public List<? extends Invocation<?, ?>> getTransformationTrace();
+	public List<TraceableElement> getTransformationTrace();
 }
