@@ -10,7 +10,11 @@ At its core are three interfaces for defining a transformation rule and the engi
 The Rule
 ^^^^^^^^
 
-The rule defines the transformation of a source into a target.
+The rule defines the transformation of a source into a target and has three methods: a guard, an initialiser and a binder.
+
+1. The guard returns a boolean to show whether the rule is applicable to the source it has been given.
+1. The initialiser builds the target objects when a match is found.
+1. The binder sets the properties within the target objects in respect to the source.
 
 .. code-block:: java
 
@@ -22,6 +26,9 @@ The rule defines the transformation of a source into a target.
     // the binder - we need to set the attributes on the target
     public void setProperties(T target, S source, Transformer tx);
   }
+
+.. caution::
+  This is important.
 
 ^^^^^^^^^^^^^^^
 The Transformer
