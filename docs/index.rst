@@ -27,13 +27,19 @@ The rule defines the transformation of a source into a target and has three meth
     public void setProperties(T target, S source, Transformer tx);
   }
 
-.. DANGER::
+Warning
+  Do not transform any objects within the ``build(S, Transformer)`` method!
 
-  This is important.
+  *A transformer will return the result of ``build(S, Transformer)`` on a second invocation of the rule upon the same source, if it doesn't return then it cannot do that.
+  Use ``setProperties(T, S, Transformer)`` to set attributes and transform other related objects.*
 
 ^^^^^^^^^^^^^^^
 The Transformer
 ^^^^^^^^^^^^^^^
+
+The transformer provides the scheduling of the transformation engine.
+How the rules are to be applied to the source objects to generate the resultant model.
+It retains a lists of transformation rules and will use the first applicable rule to the source given, if not specified.
 
 .. code-block:: java
 
@@ -52,6 +58,11 @@ The Transformer
 The Transformer's Context
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
+We introduced a context to the transformer to provide a separation of transformation logic and its internal information, as well as to allow for some storage during a transformation.
+For example, we transformed a particular source meta-model into SVG, this required each rule to generate target elements using an ``SVGDocument`` as a factory.
+This factory is not accessible to the transformation instance unless globally available, which brings its own issues (parralellisation, etc.).
+When the root of this transformation was transformed into an ``SVGDocument`` this was then stored within the context, for use by other rules using a known key.
+
 .. code-block:: java
 
   public interface Context {
@@ -59,3 +70,6 @@ The Transformer's Context
     // basically (r, s) -> t
     public Map<Entry<?, Class<? extends Rule<?, ?>>> ? extends Object> getCache();
   }
+
+This particular context holds the transformation cache.
+The cache holds the links between a source and the generated target via the rule that was applied.
