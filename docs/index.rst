@@ -13,8 +13,8 @@ The Rule
 The rule defines the transformation of a source into a target and has three methods: a guard, an initialiser and a binder.
 
 1. The guard returns a boolean to show whether the rule is applicable to the source it has been given.
-1. The initialiser builds the target objects when a match is found.
-1. The binder sets the properties within the target objects in respect to the source.
+2. The initialiser builds the target objects when a match is found.
+3. The binder sets the properties within the target objects in respect to the source.
 
 .. code-block:: java
 
@@ -27,7 +27,8 @@ The rule defines the transformation of a source into a target and has three meth
     public void setProperties(T target, S source, Transformer tx);
   }
 
-.. caution::
+.. DANGER::
+
   This is important.
 
 ^^^^^^^^^^^^^^^
