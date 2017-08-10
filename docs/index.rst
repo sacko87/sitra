@@ -14,7 +14,6 @@ The rule defines the transformation of a source into a target.
 
 .. code-block:: java
   :linenos:
-  :emphasize-lines: 2,4,6
 
   public interface Rule<S, T> {
     // the guard - is this rule applicable?
@@ -31,7 +30,6 @@ The Transformer
 
 .. code-block:: java
   :linenos:
-  :emphasize-lines: 2,4,6,8
 
   public interface Transformer {
     // transform something
@@ -50,7 +48,6 @@ The Transformer's Context
 
 .. code-block:: java
   :linenos:
-  :emphasize-lines: 3
 
   public interface Context {
     public Map<Object, Object> getConfiguration();
