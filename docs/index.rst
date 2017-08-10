@@ -12,10 +12,6 @@ The Rule
 
 The rule defines the transformation of a source into a target and has three methods: a guard, an initialiser and a binder.
 
-1. The guard returns a boolean to show whether the rule is applicable to the source it has been given.
-2. The initialiser builds the target objects when a match is found.
-3. The binder sets the properties within the target objects in respect to the source.
-
 .. code-block:: java
 
   public interface Rule<S, T> {
@@ -27,11 +23,15 @@ The rule defines the transformation of a source into a target and has three meth
     public void setProperties(T target, S source, Transformer tx);
   }
 
+1. The guard returns a boolean to show whether the rule is applicable to the source it has been given.
+2. The initialiser builds the target objects when a match is found.
+3. The binder sets the properties within the target objects in respect to the source.
+
 Warning
   Do not transform any objects within the ``build(S, Transformer)`` method!
 
-  *A transformer will return the result of ``build(S, Transformer)`` on a second invocation of the rule upon the same source, if it doesn't return then it cannot do that.
-  Use ``setProperties(T, S, Transformer)`` to set attributes and transform other related objects.*
+  A transformer will return the result of ``build(S, Transformer)`` on a second invocation of the rule upon the same source, if it doesn't return then it cannot do that.
+  Use ``setProperties(T, S, Transformer)`` to set attributes and transform other related objects.
 
 ^^^^^^^^^^^^^^^
 The Transformer
