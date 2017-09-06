@@ -30,6 +30,7 @@
 		<module>sitra-basic</module>
 		<module>sitra-linear</module>
 		<module>sitra-trace</module>
+		<module>sitra-examples</module>
 	</modules>
 	<dependencies>
 		<dependency>
